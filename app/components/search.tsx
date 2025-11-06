@@ -5,9 +5,10 @@ import { useState } from "react"
 interface SearchProps {
     onSubmit: (query: string) => void;
     placeholder?: string;
+    isPending: boolean;
 };
 
-const SearchInput: React.FC<SearchProps> = ({onSubmit, placeholder = "Search by game id"}) => {
+const SearchInput: React.FC<SearchProps> = ({onSubmit, placeholder = "Search by game id", isPending}) => {
     const [searchText, setSearchText] = useState("");
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -28,7 +29,7 @@ const SearchInput: React.FC<SearchProps> = ({onSubmit, placeholder = "Search by 
             <button
                 className="border rounded-md"
                 type="submit"
-            >Submit</button>
+            >{isPending ? "Loading..." : "Search"}</button>
         </form>
     )
 }
