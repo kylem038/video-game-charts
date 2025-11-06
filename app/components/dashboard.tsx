@@ -26,10 +26,7 @@ const Dashboard = () => {
                 console.error(err);
                 setError("Something went wrong");
             }
-        })
-
-       
-        
+        });
     }
 
     return (
